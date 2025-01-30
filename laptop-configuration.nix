@@ -117,12 +117,46 @@
     #kde connect
     python314
     rustc #rust compiler
-    teams
+    #teams
     wget
     vim 
     vscode
     zoom-us
+    ## install vscode extensions
+    (vscode-with-extensions.override {
+      vscodeExtensions = with vscode-extensions; [
+        ms-python.python
+        ms-vscode-remote.remote-ssh
+      ] ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
+        {
+          name = "remote-explorer";
+          publisher = "ms-vscode";
+          version = "0.5.2025010909";
+          sha256 = "07k0nc0a30s79m2qj5mxk285vzqad36fj1m9z376v2yqsj5mw360";
+        }
+        {
+          name = "remote-server";
+          publisher = "ms-vscode";
+          version = "1.6.2025010809";
+          sha256 = "07yl0hj94qbislqzpqlwh3wisb210ylpzy42zs2q3agparcgrlwv";
+        }
+        {
+          name = "debugpy";
+          publisher = "ms-python";
+          version = "2024.9.12041013";
+          sha256 = "1qw3yy1nrhmjyz8racwx42ils965w4lgirfz5jkqipiavqzyxfjy";
+        }
+        {
+          name = "remote-ssh-edit";
+          publisher = "ms-vscode-remote";
+          version = "0.87.0";
+          sha256 = "yeX6RAJl07d+SuYyGQFLZNcUzVKAsmPFyTKEn+y3GuM=";
+        }
+
+      ];})
   ];
+
+
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
@@ -150,5 +184,4 @@
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "24.11"; # Did you read the comment?
-
 }
