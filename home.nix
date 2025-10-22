@@ -76,4 +76,18 @@
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
+  programs.git = {
+    enable = true;
+    userName = "Joe Ryan";
+    userEmail = "joe@clanryan.us";
+    aliases = {
+      br = "branch";
+      ci = "commit";
+      co = "checkout";
+      dh = "diff HEAD";
+      po = "push origin";
+      pulo = "pull origin";
+      st = "status";
+    };
+  };
 }
